@@ -1,0 +1,409 @@
+@charset "UTF-8";
+
+/*画像のレスポンシブデザイン*/
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/*サイトのフォント設定*/
+html {
+  font-family: serif, 'Times New Roman', Times, serif;
+}
+
+/*文章の設定*/
+p {
+  line-height: 1.8;
+}
+
+
+
+/*サイトのサイズの設定(大事)*/
+.wrapper {
+  margin: 0 auto 0 auto;
+  max-width: 1100px;
+}
+
+
+/*ヘッダーに関して*/
+.header {
+  width: 1100px;
+  height: 30px;
+  background-color: #f2e285;
+} 
+
+/*bodyに関して*/
+body {
+  background-color:papayawhip;
+  background-blend-mode: overlay;
+}
+
+/*mainに関して(大事)*/
+.main {
+  position: relative;
+  width: 1100px;
+  height: 600px;
+  padding-bottom: 1000px; /* 下に1000pxのスペースを追加 */
+  overflow: hidden; 
+}
+
+/*入り口ページの背景に関して*/
+.first-view {
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/chorusmain.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+}
+
+/*入り口ページの文字に関して*/
+.first-view-text {
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
+    color:rgb(13, 244, 190);
+    font-size: 2em;
+    text-shadow: 1px 1px 9px #197953;
+    position: relative;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);;
+}
+
+/*「フォルテ」のボタンに関して*/
+.btn-circle-fishy {
+    display: inline-block;
+    text-decoration: none;
+    color: #FFF;
+    width: 120px;
+    height: 120px;
+    line-height: 120px;
+    border-radius: 50%;
+    text-align: center;
+    overflow: hidden;
+    background-image: linear-gradient(45deg, #709dff 0%, #91fdb7 100%);
+    transition: .4s;
+    position: absolute;
+    top: 25%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .btn-circle-fishy:hover {
+    box-shadow: inset 0 0 5px rgba(128, 128, 128, 0.32);
+    background-image: linear-gradient(#91fdb7 0%, #709dff 100%);
+  }
+
+/*「ピアノ」のボタンに関して*/
+  .btn-circle-fishy2 {
+    display: inline-block;
+    text-decoration: none;
+    color: #FFF;
+    width: 120px;
+    height: 120px;
+    line-height: 120px;
+    border-radius: 50%;
+    text-align: center;
+    overflow: hidden;
+    background-image: linear-gradient(45deg, #709dff 0%, #91fdb7 100%);
+    transition: .4s;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .btn-circle-fishy2:hover {
+    box-shadow: inset 0 0 5px rgba(128, 128, 128, 0.32);
+    background-image: linear-gradient(#91fdb7 0%, #709dff 100%);
+  }
+
+/*「クレッシェンド」のボタンに関して*/
+  .btn-circle-fishy3 {
+    display: inline-block;
+    text-decoration: none;
+    color: #FFF;
+    width: 120px;
+    height: 120px;
+    line-height: 120px;
+    border-radius: 50%;
+    text-align: center;
+    overflow: hidden;
+    background-image: linear-gradient(45deg, #709dff 0%, #91fdb7 100%);
+    transition: .4s;
+    position: absolute;
+    top: 25%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .btn-circle-fishy3:hover {
+    box-shadow: inset 0 0 5px rgba(128, 128, 128, 0.32);
+    background-image: linear-gradient(#91fdb7 0%, #709dff 100%);
+  }
+
+/*フッターに関して*/
+.footer {
+    width: 1100px;
+    height: 30px; 
+    background-color: #f2e285;
+    max-width: 1100px;
+    margin: 0 auto;
+  } 
+
+/*「フォルテなし」ボタンに関して*/
+  .btn-gradient-3d-simple1 {
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    border-radius: 4px;
+    color: #ffffff;
+    background-image: linear-gradient(#6795fd 0%, #67ceff 100%);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+    border-bottom: solid 3px #5e7fca;
+    position: absolute;
+    top: 37%;
+    left: 20%;
+  }
+
+  /*「フォルテあり」ボタンに関して*/
+  .btn-gradient-3d-simple2 {
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    border-radius: 4px;
+    color: #ffffff;
+    background-image: linear-gradient(#6795fd 0%, #67ceff 100%);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+    border-bottom: solid 3px #5e7fca;
+    position: absolute;
+    top: 37%;
+    left: 70%;
+  }
+
+  /*ガイドボーカルありの「録音」ボタンに関して*/
+  .btn-gradient-3d-simple3 {
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    border-radius: 4px;
+    color: #ffffff;
+    background-image: linear-gradient(#6795fd 0%, #67ceff 100%);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+    border-bottom: solid 3px #5e7fca;
+    position: absolute;
+    top: 84%;
+    left: 20%;
+  }
+
+   /*ガイドボーカルありの「録音停止」ボタンに関して*/
+   .btn-gradient-3d-simple4 {
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    border-radius: 4px;
+    color: #ffffff;
+    background-image: linear-gradient(#6795fd 0%, #67ceff 100%);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+    border-bottom: solid 3px #5e7fca;
+    position: absolute;
+    top: 84%;
+    left: 29%;
+  }
+
+  /*ガイドボーカルありの「録音再生」ボタンに関して*/
+  .btn-gradient-3d-simple5 {
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    border-radius: 4px;
+    color: #ffffff;
+    background-image: linear-gradient(#6795fd 0%, #67ceff 100%);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+    border-bottom: solid 3px #5e7fca;
+    position: absolute;
+    top: 90%;
+    left: 13%;
+  }
+
+  /*ガイドボーカルありの「同時再生」ボタンに関して*/
+  .btn-gradient-3d-simple6 {
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    border-radius: 4px;
+    color: #ffffff;
+    background-image: linear-gradient(#6795fd 0%, #67ceff 100%);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+    border-bottom: solid 3px #5e7fca;
+    position: absolute;
+    top: 90%;
+    left: 23%;
+  }
+
+  /*ガイドボーカルありの「スロー同時再生」ボタンに関して*/
+  .btn-gradient-3d-simple7 {
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    border-radius: 4px;
+    color: #ffffff;
+    background-image: linear-gradient(#6795fd 0%, #67ceff 100%);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+    border-bottom: solid 3px #5e7fca;
+    position: absolute;
+    top: 90%;
+    left: 33%;
+  }
+
+  /*ガイドボーカルなしの「録音」ボタンに関して*/
+  .btn-gradient-3d-simple8 {
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    border-radius: 4px;
+    color: #ffffff;
+    background-image: linear-gradient(#6795fd 0%, #67ceff 100%);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+    border-bottom: solid 3px #5e7fca;
+    position: absolute;
+    top: 84%;
+    left: 62.5%;
+  }
+
+  /*ガイドボーカルなしの「録音停止」ボタンに関して*/
+  .btn-gradient-3d-simple9 {
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    border-radius: 4px;
+    color: #ffffff;
+    background-image: linear-gradient(#6795fd 0%, #67ceff 100%);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+    border-bottom: solid 3px #5e7fca;
+    position: absolute;
+    top: 84%;
+    left: 71.5%;
+  }
+
+  /*ガイドボーカルなしの「録音再生」ボタンに関して*/
+  .btn-gradient-3d-simple10 {
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    border-radius: 4px;
+    color: #ffffff;
+    background-image: linear-gradient(#6795fd 0%, #67ceff 100%);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+    border-bottom: solid 3px #5e7fca;
+    position: absolute;
+    top: 90%;
+    left: 55.5%;
+  }
+
+   /*ガイドボーカルなしの「同時再生」ボタンに関して*/
+   .btn-gradient-3d-simple11 {
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    border-radius: 4px;
+    color: #ffffff;
+    background-image: linear-gradient(#6795fd 0%, #67ceff 100%);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+    border-bottom: solid 3px #5e7fca;
+    position: absolute;
+    top: 90%;
+    left: 65.5%;
+  }
+
+   /*ガイドボーカルなしの「スロー同時再生」ボタンに関して*/
+   .btn-gradient-3d-simple12 {
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    border-radius: 4px;
+    color: #ffffff;
+    background-image: linear-gradient(#6795fd 0%, #67ceff 100%);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+    border-bottom: solid 3px #5e7fca;
+    position: absolute;
+    top: 90%;
+    left: 75.5%;
+  }
+
+/*Chorus1.のボタン*/
+  .btn-gradient-3d-simple {
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    border-radius: 4px;
+    color: #ffffff;
+    background-image: linear-gradient(#6795fd 0%, #67ceff 100%);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+    border-bottom: solid 3px #5e7fca;
+  }
+  
+  .btn-gradient-3d-simple:active {
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+    border-bottom: none;
+  }
+
+  /*各ページの文字に関して*/
+.second-view-text {
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
+  color:rgb(61, 124, 240);
+  font-size: 2em;
+  text-shadow: 1px 1px 9px #07c8f3;
+  position: relative;
+  top: 20%;
+  left: 75%;
+  transform: translate(-50%, -50%);;
+  display: flex;
+  align-items: center; /* 文字と画像の縦位置を揃える */
+}
+
+/*「フォルテ」(h1)と画像を横並びにする*/
+h1 {
+  margin-right: 10px; /* 画像との間に余白を作る */
+}
+.second-view-text img {
+  max-width: 100px; /* 画像のサイズを調整（必要に応じて変更） */
+  height: auto;     /* アスペクト比を維持する */
+}
+
+/*「続きはこちら」ボタンに関して*/
+.btn-gradient-3d-simple13 {
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  border-radius: 4px;
+  color: #ffffff;
+  background-image: linear-gradient(#6795fd 0%, #67ceff 100%);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+  border-bottom: solid 3px #5e7fca;
+  /* ↓ 以下の2行で中央に表示 */
+  display: block;
+  margin: 50px auto; /* 上に余白をつけて下っぽくする */
+  text-align: center;
+  line-height: 1.5;
+}
+
+
+/*h2全体のフッターに関して*/
+h2 {
+  border-bottom: 3.5px solid #07acb2;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+}

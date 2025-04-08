@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>音程グラフ & 録音</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="css/chorus3.css">
+</head>
+<body>
+  <h2>実際に歌ってみよう②</h2>
+  <p>ここでは音程バーを利用し、自分の歌声を客観的に分析していきましょう！<br>お手本の音程バーと自分の音程バーをできるだけ近づけるように練習してください！</p>
+  <h3>手順</h3>
+  <p>①「ダウンロード」ボタンをクリックし、zipファイルを取得。「解凍」ボタンを押し、zipファイルを解凍。音源を取得<br>
+  ②「録音」ボタンを押し、音源に合わせて歌う。歌唱後、「録音停止」ボタンを押す。<strong>←ここで自分の声が音程バーに反映されます</strong><br>
+  ③「音程バー」ボタンを押し、②で得た音源を選択する<strong>←ここで見本の声が音程バーに反映されます</strong><br>
+  ※「見本ボタン」を押すとガイドボーカルの音源が出ます。<br>
+  　録音を停止する際、自分の録音をダウンロードすることも可能です<br>
+</p>
+
+<a href="audio/フォルテ/フォルテ(After).zip" download="フォルテ(After).zip">
+  <button class="btn-gradient-3d-simple1">ダウンロード</button>
+</a>
+
+<label for="zipInput">解凍</label>
+<input type="file" id="zipInput" accept=".zip">
+<ul id="fileList"></ul>
+
+<button id="record-btn">録音</button>
+<a id="download-link" style="display:none">録音をダウンロード</a>
+
+<button id="sample-btn">見本ボタン</button>
+
+<label for="file-input">音程バー</label>
+<input type="file" id="file-input" accept="audio/*" multiple>
+<canvas id="pitch-graph"></canvas>
+
+
+  <audio id="guide-audio" src="audio/フォルテ/フォルテ(Guide).mp3"></audio>
+  <audio id="sample-audio" src="audio/フォルテ/フォルテ(After).mp3"></audio>
+  
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="js/chorus2.js"></script> <!-- 外部JavaScriptファイル -->
+
+  <h2>まとめ</h2>
+  <p>上手くできましたか？最後におさらいです！</p>
+    <h3>フォルテを歌う際のポイント<br>・単に「強く」という意味じゃない！！
+    <br>・「強い」という意味だからといって、単に声量を大きくしてはいけません。<strong>より空間を大きく使うイメージ</strong>で歌いましょう。
+
+    <a href="Chorus1.html" id="Next" class="btn-gradient-3d-simple13">前のページに戻る</a>
+    <a href="Chorus.html" id="Next" class="btn-gradient-3d-simple13">メインページに戻る</a>
+</body>
+</html>

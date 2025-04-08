@@ -1,0 +1,283 @@
+@charset "UTF-8";
+
+/*画像のレスポンシブデザイン*/
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/*サイトのフォント設定*/
+html {
+  font-family: serif, 'Times New Roman', Times, serif;
+}
+
+/*文章の設定*/
+p {
+  line-height: 1.8;
+}
+
+
+
+/*サイトのサイズの設定(大事)*/
+.wrapper {
+  margin: 0 auto 0 auto;
+  max-width: 1100px;
+}
+
+
+/*ヘッダーに関して*/
+.header {
+  width: 1100px;
+  height: 30px;
+  background-color: #f2e285;
+} 
+
+/*bodyに関して*/
+body {
+  background-color:papayawhip;
+  background-blend-mode: overlay;
+}
+
+/*mainに関して(大事)*/
+.main {
+  position: relative;
+  width: 1100px;
+  height: 600px;
+  overflow: hidden; 
+}
+
+/*入り口ページの背景に関して*/
+.first-view {
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/chorusmain.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+}
+
+/*入り口ページの文字に関して*/
+.first-view-text {
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
+    color:rgb(13, 244, 190);
+    font-size: 2em;
+    text-shadow: 1px 1px 9px #197953;
+    position: relative;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);;
+}
+
+/*「フォルテ」のボタンに関して*/
+.btn-circle-fishy {
+    display: inline-block;
+    text-decoration: none;
+    color: #FFF;
+    width: 120px;
+    height: 120px;
+    line-height: 120px;
+    border-radius: 50%;
+    text-align: center;
+    overflow: hidden;
+    background-image: linear-gradient(45deg, #709dff 0%, #91fdb7 100%);
+    transition: .4s;
+    position: absolute;
+    top: 70%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .btn-circle-fishy:hover {
+    box-shadow: inset 0 0 5px rgba(128, 128, 128, 0.32);
+    background-image: linear-gradient(#91fdb7 0%, #709dff 100%);
+  }
+
+/*「ピアノ」のボタンに関して*/
+  .btn-circle-fishy2 {
+    display: inline-block;
+    text-decoration: none;
+    color: #FFF;
+    width: 120px;
+    height: 120px;
+    line-height: 120px;
+    border-radius: 50%;
+    text-align: center;
+    overflow: hidden;
+    background-image: linear-gradient(45deg, #709dff 0%, #91fdb7 100%);
+    transition: .4s;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .btn-circle-fishy2:hover {
+    box-shadow: inset 0 0 5px rgba(128, 128, 128, 0.32);
+    background-image: linear-gradient(#91fdb7 0%, #709dff 100%);
+  }
+
+/*「クレッシェンド」のボタンに関して*/
+  .btn-circle-fishy3 {
+    display: inline-block;
+    text-decoration: none;
+    color: #FFF;
+    width: 120px;
+    height: 120px;
+    line-height: 120px;
+    border-radius: 50%;
+    text-align: center;
+    overflow: hidden;
+    background-image: linear-gradient(45deg, #709dff 0%, #91fdb7 100%);
+    transition: .4s;
+    position: absolute;
+    top: 70%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .btn-circle-fishy3:hover {
+    box-shadow: inset 0 0 5px rgba(128, 128, 128, 0.32);
+    background-image: linear-gradient(#91fdb7 0%, #709dff 100%);
+  }
+
+/*フッターに関して*/
+.footer {
+    width: 1100px;
+    height: 30px; 
+    background-color: #f2e285;
+    max-width: 1100px;
+    margin: 0 auto;
+  } 
+
+
+  /*各ページの文字に関して*/
+.second-view-text {
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
+  color:rgb(61, 124, 240);
+  font-size: 2em;
+  text-shadow: 1px 1px 9px #07c8f3;
+  position: relative;
+  top: 20%;
+  left: 75%;
+  transform: translate(-50%, -50%);;
+  display: flex;
+  align-items: center; /* 文字と画像の縦位置を揃える */
+}
+
+/*h2全体のフッターに関して*/
+h2 {
+  border-bottom: 3.5px solid #07acb2;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+/* ボタン共通スタイル */
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+  }
+  
+  /* グラデーションのボタン */
+  .btn-gradient-3d-simple1 {
+    background: linear-gradient(45deg, #4caf50, #2e7d32);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn-gradient-3d-simple1:hover {
+    background: linear-gradient(45deg, #388e3c, #1b5e20);
+  }
+  
+  /* 入力ファイル */
+  input[type="file"] {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px;
+  }
+  
+  /* 見本ボタン */
+  #sample-btn {
+    background-color: #ff9800;
+    color: white;
+    border: none;
+  }
+  
+  #sample-btn:hover {
+    background-color: #f57c00;
+  }
+  
+  /* 録音ボタン */
+  #record-btn {
+    background-color: #2196f3;
+    color: white;
+    border: none;
+  }
+  
+  #record-btn:hover {
+    background-color: #1976d2;
+  }
+  
+  /* ファイル選択ボタンのラベル */
+  label {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #9e9e9e;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  label:hover {
+    background-color: #757575;
+  }
+  
+  /* ファイル選択ボタンを非表示にする */
+  input[type="file"] {
+    display: none;
+  }
+  
+  /* ファイルリスト */
+  #fileList {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  /* キャンバス */
+  #pitch-graph {
+    width: 100%;
+    height: 400px;
+    margin-top: 20px;
+  }
+
+/*「続きはこちら」ボタンに関して*/
+.btn-gradient-3d-simple13 {
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    border-radius: 4px;
+    color: #ffffff;
+    background-image: linear-gradient(#6795fd 0%, #67ceff 100%);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+    border-bottom: solid 3px #5e7fca;
+    /* ↓ 以下の2行で中央に表示 */
+    display: block;
+    margin: 50px auto; /* 上に余白をつけて下っぽくする */
+    text-align: center;
+    line-height: 1.5;
+  }
