@@ -185,7 +185,6 @@ function animateCursor(duration) {
       sampleAudio.currentTime = 0;
       sampleAudio.play();
       animateCursor(sampleAudio.duration);
-      await processAudio(sampleAudio, "フォルテ(After)");
     });
     /*ZIPファイル解凍*/
     document.getElementById('zipInput').addEventListener('change', async function(event) {
