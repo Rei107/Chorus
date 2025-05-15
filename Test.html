@@ -25,6 +25,18 @@
   　録音を停止する際、自分の録音をダウンロードすることも可能です<br>
 </p>
 
+<!-- 必要なHTMLの一部（省略してる部分は既存のままでOK） -->
+<canvas id="pitch-graph"></canvas>
+<input type="file" id="file-input" accept="audio/*" multiple>
+<button id="record-btn">録音開始</button>
+<button id="sample-btn">見本再生</button>
+
+<audio id="guide-audio" src="audio/guide.mp3"></audio>
+<audio id="sample-audio" src="audio/フォルテ/フォルテ(After).mp3" preload="auto"></audio>
+<audio id="start-audio" src="audio/フォルテ/ガイドボーカルなしの録音音源.mp3"></audio>
+<a id="download-link" style="display:none"></a>
+
+
 <a href="audio/フォルテ/フォルテ(After).zip" download="フォルテ(After).zip">
   <button class="btn-gradient-3d-simple1">ダウンロード</button>
 </a>
@@ -33,10 +45,6 @@
 <input type="file" id="zipInput" accept=".zip">
 <ul id="fileList"></ul>
 
-<button id="record-btn">録音</button>
-<a id="download-link" style="display:none">録音をダウンロード</a>
-
-<button id="sample-btn">見本ボタン</button>
 
 <label for="file-input">音程バー</label>
 <input type="file" id="file-input" accept="audio/*" multiple>
