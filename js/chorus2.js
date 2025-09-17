@@ -1,4 +1,4 @@
-　　const fileInput = document.getElementById('file-input');
+const fileInput = document.getElementById('file-input');
     const recordBtn = document.getElementById('record-btn');
     const sampleBtn = document.getElementById('sample-btn');
     const downloadLink = document.getElementById('download-link');
@@ -217,3 +217,6 @@ function animateCursor(duration) {
         }, 1000);
       }
     });
+
+
+  
