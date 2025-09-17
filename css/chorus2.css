@@ -269,8 +269,8 @@ body {
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
     border-bottom: solid 3px #5e7fca;
     position: absolute;
-    top: 84%;
-    left: 62.5%;
+    top: 90%;
+    left: 40%;
   }
 
   /*ガイドボーカルなしの「録音停止」ボタンに関して*/
@@ -284,8 +284,8 @@ body {
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
     border-bottom: solid 3px #5e7fca;
     position: absolute;
-    top: 84%;
-    left: 71.5%;
+    top: 90%;
+    left: 49%;
   }
 
   /*ガイドボーカルなしの「録音再生」ボタンに関して*/
@@ -299,8 +299,8 @@ body {
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
     border-bottom: solid 3px #5e7fca;
     position: absolute;
-    top: 90%;
-    left: 55.5%;
+    top: 96%;
+    left: 33%;
   }
 
    /*ガイドボーカルなしの「同時再生」ボタンに関して*/
@@ -314,8 +314,8 @@ body {
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
     border-bottom: solid 3px #5e7fca;
     position: absolute;
-    top: 90%;
-    left: 65.5%;
+    top: 96%;
+    left: 43%;
   }
 
    /*ガイドボーカルなしの「スロー同時再生」ボタンに関して*/
@@ -329,8 +329,8 @@ body {
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
     border-bottom: solid 3px #5e7fca;
     position: absolute;
-    top: 90%;
-    left: 75.5%;
+    top: 96%;
+    left: 53%;
   }
 
 /*Chorus1.のボタン*/
@@ -406,4 +406,32 @@ h2 {
   padding-bottom: 5px;
   padding-left: 5px;
   padding-right: 5px;
+}
+
+/*表題のフォルテに関して*/
+.second-view-text h1 {
+  margin-left: 80px;   /* 画面左から80pxだけ空けて配置 */
+}
+
+
+ /* ▼ BPMライト用スタイル ▼ */
+    #bpm-light-wrapper {
+      margin-right: 50px;   /* 画面左から80pxだけ空けて配置 */
+      margin-top: 72px;
+    }
+    #bpm-light {
+      width:60px;
+      height:60px;
+      border-radius:50%;
+      background:#222;
+      box-shadow:0 0 10px rgba(0,0,0,0.6);
+      margin:20px auto;
+      transition: background 0.05s, box-shadow 0.05s;
+    }
+    #bpm-light.on {
+      background: #9fc9ff;
+      box-shadow:0 0 20px #9fc9ff;
+    }
+    #bpm-light-controls { display:none; } /* 手動ボタンを使わない場合は非表示 */
+
 }
