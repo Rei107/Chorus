@@ -3,7 +3,7 @@ let recordedChunks = [];
 const audioContext = new (window.AudioContext || window.webkitAudioContext)();
 let recordedBuffer;
 
-/* 録音・再生ボタン関連(見本あり録音・見本なし録音) */
+/* 録音・再生ボタン関連（見本なし録音のみ） */
 function setupRecorder(recordButtonId, stopButtonId, playButtonId, audioElementId, successAudioId) {
     let audioChunks = [];
     let audio = document.getElementById(audioElementId);
@@ -23,11 +23,12 @@ function setupRecorder(recordButtonId, stopButtonId, playButtonId, audioElementI
                 const audioURL = URL.createObjectURL(audioBlob);
                 audio.src = audioURL;
                 audioChunks = [];
-                stream.getTracks().forEach(track => track.stop()); // ストリームを停止
+                stream.getTracks().forEach(track => track.stop());
             };
 
             // マイクアクセスが許可された場合に successAudioId を再生
             playAudio(successAudioId);
+            startBlink(); // ← ここを追加！
 
         } catch (err) {
             console.error('マイクアクセスが拒否されました: ', err);
@@ -51,10 +52,8 @@ function playAudio(audioId, playbackRate = 1) {
     audio.play();
 }
 
-setupRecorder('record1', 'stop1', 'play1', 'audio1', 'audio6');
+// 見本なし録音用だけ設定
 setupRecorder('record2', 'stop2', 'play2', 'audio2', 'audio4');
-
-
 
 /* 見本音声再生 */
 document.getElementById('Teacher').addEventListener('click', () => {
@@ -65,67 +64,52 @@ document.getElementById('Teacher2').addEventListener('click', () => {
     playAudio('audio5');
 });
 
-/* 見本あり録音再生 */
-document.getElementById('play1').addEventListener('click', () => {
-    playAudio('audio1');
-    playAudio('audio4');
-});
-
 /* 見本なし録音再生 */
 document.getElementById('play2').addEventListener('click', () => {
     playAudio('audio2');
     playAudio('audio4');
 });
 
-/* 見本あり同時再生 */
-document.getElementById('play3').addEventListener('click', () => {
-    playAudio('audio1');
-
-    playAudio('audio6');
-});
-
-/* 見本ありスロー同時再生 */
-document.getElementById('slow1').addEventListener('click', () => {
-    playAudio('audio1', 0.85); // 半分の速度で再生
-    playAudio('audio6', 0.85); // 半分の速度で再生
-});
-
 /* 見本なし同時再生 */
 document.getElementById('play4').addEventListener('click', () => {
-    // audio2はすぐに再生
-    audio2.play();
+    const a2 = document.getElementById('audio2');
+    const a6 = document.getElementById('audio6');
 
-    // audio3の再生を0.2秒遅らせる
+    // 前回の再生を停止して位置を戻し、速度をリセット
+    [a2, a6].forEach(a => {
+        a.pause();
+        a.currentTime = 0;
+        a.playbackRate = 1.0;   // ← ここが重要
+    });
+
+    a2.play();
     setTimeout(() => {
-        audio6.play();
-    }, 150); // 200ms（0.2秒）遅延
+        a6.play();
+    }, 320);
 });
 
 /* 見本なしスロー同時再生 */
 document.getElementById('slow2').addEventListener('click', () => {
-    // audio 要素を取得
-    const audio2 = document.getElementById('audio2');
-    const audio6 = document.getElementById('audio6');
-    
-    // 再生速度を設定
-    audio2.playbackRate = 0.85;
-    audio6.playbackRate = 0.85;
+    const a2 = document.getElementById('audio2');
+    const a6 = document.getElementById('audio6');
 
-    // audio2はすぐに再生
-    audio2.play();
+    // 前回の再生を停止して位置を戻す
+    [a2, a6].forEach(a => {
+        a.pause();
+        a.currentTime = 0;
+        a.playbackRate = 0.85;  // ← スロー
+    });
 
-    // audio6の再生を0.2秒遅らせる
+    a2.play();
     setTimeout(() => {
-        audio6.play();
-    }, 150); // 200ms（0.2秒）遅延
+        a6.play();
+    }, 320);
 });
 
 
-
-
-/* ノイズ除去 */
+/* ノイズ除去などの関数はそのまま */
 function applyNoiseReduction(buffer) {
-    // ノイズ除去の実装
+    // ノイズ除去の実装予定
 }
 
 async function loadAudioBuffer(audioContext, url) {
@@ -160,7 +144,12 @@ async function normalizeAndPlay() {
     const existingBuffer2 = await loadAudioBuffer(audioContext, audio3.src);
     const existingBuffer3 = await loadAudioBuffer(audioContext, audio2.src);
 
-    const targetGain = Math.max(getRMS(recordedBuffer), getRMS(existingBuffer1), getRMS(existingBuffer2), getRMS(existingBuffer3));
+    const targetGain = Math.max(
+        getRMS(recordedBuffer),
+        getRMS(existingBuffer1),
+        getRMS(existingBuffer2),
+        getRMS(existingBuffer3)
+    );
 
     const recordedGainNode = audioContext.createGain();
     recordedGainNode.gain.value = targetGain / getRMS(recordedBuffer);
@@ -178,13 +167,12 @@ async function normalizeAndPlay() {
     playBuffer(audioContext, existingBuffer1, existingGainNode1);
     setTimeout(() => {
         playBuffer(audioContext, existingBuffer2, existingGainNode2);
-    }, 150); // 150msの遅延を加える
+    }, 150);
     setTimeout(() => {
         playBuffer(audioContext, existingBuffer3, existingGainNode3);
-    }, 300); // 300msの遅延を加える
+    }, 300);
 }
 
-/*クリック時にデフォルトで上にいってしまうのを防止*/
 const linkIds = ['Teacher', 'Teacher2','record1', 'stop1', 'play1', 'play3', 'slow1', 'record2', 'stop2', 'play2', 'play4', 'slow2'];
 
 linkIds.forEach(id => {
@@ -196,3 +184,67 @@ linkIds.forEach(id => {
         });
     }
 });
+
+
+ // ▼ BPMライト制御 ▼
+  const light = document.getElementById('bpm-light');
+  let timerId = null;
+
+  function startBlink() {
+    stopBlink();
+    const bpm = 107;     // 固定
+    const pulsePct = 20; // 固定
+    const beatMs = 60000 / bpm;
+    const onMs  = Math.max(1, Math.round(beatMs * (pulsePct / 100)));
+
+    function pulse() {
+      light.classList.add('on');
+      setTimeout(() => light.classList.remove('on'), onMs);
+    }
+    pulse();
+    timerId = setInterval(pulse, beatMs);
+  }
+
+  function stopBlink() {
+    if (timerId !== null) {
+      clearInterval(timerId);
+      timerId = null;
+    }
+    light.classList.remove('on');
+  }
+
+  // 録音ボタン連動
+  let audioStream = null; // グローバルに保存
+
+document.getElementById('record2').addEventListener('click', async (e) => {
+  e.preventDefault();
+
+});
+
+document.getElementById('stop2').addEventListener('click', (e) => {
+    e.preventDefault();
+    stopBlink(); // ← ここで点滅を止める！
+    // 録音停止処理などがあればここに追加
+  });
+
+
+  // 任意で手動開始/停止も可能
+  document.getElementById('bpm-light-start')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    startBlink();
+  });
+  document.getElementById('bpm-light-stop')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    stopBlink();
+  });
+
+
+/*「このように」に関して*/
+  const playLink = document.getElementById('play-sample');
+    const sampleAudio = document.getElementById('sample-audio');
+
+    playLink.addEventListener('click', () => {
+      // 先頭から再生
+      sampleAudio.currentTime = 0;
+      sampleAudio.play();
+    });
